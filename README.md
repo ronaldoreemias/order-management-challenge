@@ -1,7 +1,7 @@
 <h1>Projeto para o processo seletivo<h1>
 <p>Ronaldo <p>
 <br/>
-
+---
 <h2> Dependências instaladas</h2>
 
 <ul>
@@ -12,6 +12,7 @@
   <li><b>cors</b> → habilitar requisições externas (CORS)</li>
   <li><b>dotenv</b> → gerenciamento de variáveis de ambiente</li>
 </ul>
+---
 <br/>
 <h2> Estrutura de pastas</h2>
 
@@ -65,7 +66,7 @@ Mostra preocupação com validação de entrada.
 
 Fácil de expandir: basta adicionar novos caracteres ao array suspeita.
 
----
+
 
 <h1>Como rodar o projeto<h1>
 <br/>
@@ -86,7 +87,7 @@ npm install
 
 PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET=um_segredo_seguro
 
----
+
 <br/>
 
 <h2>Fluxo da API<h2>
