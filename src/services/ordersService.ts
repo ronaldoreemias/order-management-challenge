@@ -1,14 +1,21 @@
 import { Order, IOrder, OrderState } from "../models/Orders.js";
 
-export async function createOrder(data: Partial<IOrder>) {
-    // miltiplicar q quanditado com o valor
-    const valorFinal = (data.quantidade ?? 0) * (data.valorFinal ?? 0);
-    
-    //agora eu posso fazer a verificação e validar
-        if (valorFinal <= 0) throw new Error("Valor inválido"); // não entendi como funciona o throw, mas tá rodando...
 
-    const order = new Order({ ...data, valorFinal });
-    return await order.save();
+// eu juro que tá certo, mas pode ser que não esteja...... testar depois com o cURL
+export async function createOrder(data: Partial<IOrder>) {
+
+    // verificar se o pedido tem pelomenos um serviço
+    if (!data.services || data.services.length === 0) {
+        throw new Error("Pedido deve conter ao menos um serviço");
+    }
+    
+    const valorTotal = data.services.reduce((acc, s) => acc + s.value, 0);
+    
+    // verificar se é menor ou igual a 0
+    if (valorTotal <= 0) {
+        throw new Error("Valor total inválido");
+    }
+
 }
 
     export async function advanceState(orderId: string) {

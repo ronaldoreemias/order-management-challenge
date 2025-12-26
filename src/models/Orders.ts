@@ -1,46 +1,69 @@
-import { Schema, model } from "mongoose"; // melhor postgresql...interface complicada essa
+import { Schema, model } from "mongoose";
 
-
-//acho que agora funciona
 export type OrderState = "CREATED" | "ANALYSIS" | "COMPLETED";
 export type OrderStatus = "ACTIVE" | "DELETED";
 
+export interface IService {
+  name: string;
+  value: number;
+  status: "PENDING" | "DONE";
+}
+
 export interface IOrder {
-  cliente: string;
-  produto: string;
-  quantidade: number;
-  valorFinal: number;
+  lab: string;
+  patient: string;
+  customer: string;
+  services: IService[];
   state: OrderState;
   status: OrderStatus;
 }
 
+const ServiceSchema = new Schema<IService>({
+    name: { 
+        type: String, 
+        required: true 
+    
+    },
+
+    value: { 
+        type: Number, 
+        required: true 
+    },
+
+    status: { 
+        type: String, 
+        enum: ["PENDING", "DONE"], 
+        default: "PENDING" 
+    }
+});
+
 const OrderSchema = new Schema<IOrder>({
-  
-    cliente: { 
+    lab: { 
         type: String, 
         required: true 
     },
 
-    produto: { 
+    patient: { 
         type: String, 
         required: true 
     },
 
-    quantidade: { 
-        type: Number, 
+    customer: { 
+        type: String, 
         required: true 
     },
 
-    valorFinal: { 
-        type: Number, 
+    services: { 
+        type: [ServiceSchema], 
         required: true 
-    },
+    }, 
 
     state: { 
         type: String, 
         enum: ["CREATED", "ANALYSIS", "COMPLETED"], 
         default: "CREATED" 
     },
+    
     status: { 
         type: String, 
         enum: ["ACTIVE", "DELETED"], 
