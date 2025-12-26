@@ -45,14 +45,21 @@ eu defino em outro array as váriaveis que quero
 
 <br/>
 ai eu uso o for para verificar
+<br/>
     for (const campo of campos) {
-    //se achar algo 
+        <br/>
+    //se achar algo
+    <br/> 
         if (suspeita.some(char => campo.includes(char))) {
+        <br/>
         //retorna o status
+        <br/>
         return res.status(400).json({ 
             mensagem: "Entrada suspeita detectada" 
         });
+        <br/>
     }
+    <br/>
     }
 <br/>
 
@@ -67,7 +74,7 @@ Fácil de expandir: basta adicionar novos caracteres ao array suspeita.
 
 1- Clonar o repositório
 
-git clone <link-do-repositorio> cd backend-2-ts
+git clone link-do-repositorio 
 
 <br/>
 
@@ -80,7 +87,11 @@ npm install
 3- Configurar variáveis de ambiente
 
 
-PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET= ai vai da sua criatividade
+PORT=4000    
+<br/>
+MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    
+<br/>
+JWT_SECRET= ai vai da sua criatividade
 
 
 <br/>
