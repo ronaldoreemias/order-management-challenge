@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "lib": ["ESNext"],
+        "target": "ESnext",
+        "module": "NodEnext",
+        "moduleResolution": "NodeNext",
+
+
+        "rootDir": "src",
+        "outDir": "build",
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}
