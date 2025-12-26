@@ -1,6 +1,4 @@
 <h1>Projeto para o processo seletivo<h1>
-<p>Ronaldo <p>
-<br/>
 ---
 <h2> Dependências instaladas</h2>
 
