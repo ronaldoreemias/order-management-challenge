@@ -9,13 +9,42 @@ router.post("/cadastro", async (req: Request, res: Response) => {
   const { email, password, confirmarSenha } = req.body;
 
   //verificar primeiro se os campos estão vazios, vai que enviaram vazios
-  if (!email || !password) {
+  if (!email || !password || !confirmarSenha) {
     
     return res.json({ 
         mensagem: "Campos obrigatórios não preenchidos" 
     });
   
 }
+    // verificar se tem campos supeitos
+    const suspeita = [ '$', '!', '{', '[', '/' ];
+    
+    const campos = [ email, password, confirmarSenha];
+
+    for (const campo of campos) {
+    
+        if (suspeita.some(char => campo.includes(char))) {
+        
+        return res.status(400).json({ 
+            mensagem: "Entrada suspeita detectada" 
+        });
+    }
+    }
+
+
+    // agora vamos previnir contra DoS hehehe.... não é bemmmmm previr , mas ajuda a combater
+    if(email.length > 50){
+        return res.status(400).json({
+            mensagem: "vai conseguir muito em, tenta mais"
+        });
+    }
+
+    if(password.length > 50){
+        return res.status(400).json({
+            mensagem: "vai conseguir muito em, tenta mais"
+        });
+    }
+
 
 //aqui tô só verificando se a senha tá correta mesmo
   if (password !== confirmarSenha) {
@@ -48,6 +77,28 @@ router.post("/cadastro", async (req: Request, res: Response) => {
 
 router.post("/login", async (req: Request, res: Response) => {
   const { email, password } = req.body;
+
+   if (!email || !password) {
+    
+    return res.json({ 
+        mensagem: "Campos obrigatórios não preenchidos" 
+    });
+  
+}
+
+    const suspeita = [ '$', '!', '{', '[', '/' ];
+    
+    const campos = [ email, password];
+
+    for (const campo of campos) {
+    
+        if (suspeita.some(char => campo.includes(char))) {
+        
+        return res.status(400).json({ 
+            mensagem: "Entrada suspeita detectada" 
+        });
+    }
+    }
 
     const usuario = await User.findOne({ email });
         
