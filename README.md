@@ -62,28 +62,25 @@ ai eu uso o for para verificar
 
 Bloqueia tentativas de injeção simples (SQL/NoSQL injection, XSS).
 
-Mostra preocupação com validação de entrada.
-
 Fácil de expandir: basta adicionar novos caracteres ao array suspeita.
 
+---
+<h2>Como rodar o projeto<h2>
 
+1- Clonar o repositório
 
-<h1>Como rodar o projeto<h1>
-<br/>
-1. Clonar o repositório
-<br/>
 git clone <link-do-repositorio> cd backend-2-ts
 
 <br/>
 
-2. Instalar dependências
-<br/>
+2- Instalar dependências
+
 npm install
 
 <br/>
 
-3. Configurar variáveis de ambiente
-<br/>
+3- Configurar variáveis de ambiente
+
 
 PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET=um_segredo_seguro
 
