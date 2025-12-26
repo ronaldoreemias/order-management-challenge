@@ -95,7 +95,11 @@ JWT_SECRET= ai vai da sua criatividade
 
 
 <br/>
-
+<h2>Build<h2>
+<br/>
+basicamente você roda o npm rum build 
+<br/>
+<br/>
 <h2>Fluxo da API<h2>
 
 <br/>
