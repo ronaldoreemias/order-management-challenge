@@ -1,4 +1,4 @@
-<h1>Projeto para o proccesso seletivo<h1>
+<h1>Projeto para o processo seletivo<h1>
 <p>Ronaldo <p>
 <br/>
 
@@ -57,3 +57,46 @@ ai eu uso o for para verificar
     }
 <br/>
 
+<h3>O que isso garante as minhas seguranças ?<h3>
+
+Bloqueia tentativas de injeção simples (SQL/NoSQL injection, XSS).
+
+Mostra preocupação com validação de entrada.
+
+Fácil de expandir: basta adicionar novos caracteres ao array suspeita.
+
+---
+
+<h1>Como rodar o projeto<h1>
+<br/>
+1. Clonar o repositório
+<br/>
+git clone <link-do-repositorio> cd backend-2-ts
+
+<br/>
+
+2. Instalar dependências
+<br/>
+npm install
+
+<br/>
+
+3. Configurar variáveis de ambiente
+<br/>
+
+PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET=um_segredo_seguro
+
+---
+<br/>
+
+<h2>Fluxo da API<h2>
+
+<br/>
+
+<ul>
+    <li><b>POST /auth/cadastro</b> → cadastro de usuário</li>
+    <li><b>POST /auth/login</b> → login e retorno de JWT</li>
+    <li><b>POST /orders</b> → criação de pedido (protegido por JWT)</li>
+    <li><b>GET /orders</b> → listagem com paginação e filtro por state</li>
+    <li><b>PATCH /orders/:id/advance</b> → avançar estado do pedido (CREATED → ANALYSIS → COMPLETED)</li>
+<ul>
