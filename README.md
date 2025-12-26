@@ -80,7 +80,7 @@ npm install
 3- Configurar variáveis de ambiente
 
 
-PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET=um_segredo_seguro
+PORT=4000    MONGO_URI=sua_string_de_conexao_do_mongodb_atlas    JWT_SECRET= ai vai da sua criatividade
 
 
 <br/>
