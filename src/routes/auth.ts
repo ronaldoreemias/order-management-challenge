@@ -17,7 +17,7 @@ router.post("/cadastro", async (req: Request, res: Response) => {
   
 }
     // verificar se tem campos supeitos
-    const suspeita = [ '$', '!', '{', '[', '/' ];
+    const suspeita = [ '$', '!', '{', '[', '/', '%', '(', ')', '<', '&', '?'];
     
     const campos = [ email, password, confirmarSenha];
 
@@ -86,7 +86,7 @@ router.post("/login", async (req: Request, res: Response) => {
   
 }
 
-    const suspeita = [ '$', '!', '{', '[', '/' ];
+    const suspeita = [ '$', '!', '{', '[', '/', '%', '(', ')', '<', '&', '?'];
     
     const campos = [ email, password];
 

@@ -32,3 +32,28 @@
   <li><b>package.json</b> → dependências e scripts</li>
   <li><b>README.md</b> → documentação do projeto</li>
 </ul>
+
+<h2> Lógica de segurança nas verificações</h2>
+
+pensei em criar um array simples para verificar cada entrada : 
+ <br/>
+
+ <p> const suspeita = [ '$', '!', '{', '[', '/', '%', '(', ')', '<', '&', '?']; <p>
+
+ <br/>
+eu defino em outro array as váriaveis que quero
+ const campos = [ email, password];
+
+<br/>
+ai eu uso o for para verificar
+    for (const campo of campos) {
+    //se achar algo 
+        if (suspeita.some(char => campo.includes(char))) {
+        //retorna o status
+        return res.status(400).json({ 
+            mensagem: "Entrada suspeita detectada" 
+        });
+    }
+    }
+<br/>
+

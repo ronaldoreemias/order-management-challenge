@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
+
+// vou por o cors pq tô fazendo o fronte dessa aplicação
 import cors from "cors";
+
 import dotenv from "dotenv";
 
 // Rotas
